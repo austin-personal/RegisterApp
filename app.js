@@ -88,6 +88,6 @@ app.get('/test-dynamodb-connection', async (req, res) => {
 app.use(express.static(path.join(__dirname, 'Public')));
 
 // Start the Express application and listen on the specified port
-app.listen(port, () => {
+/*app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
-});
+});*/
