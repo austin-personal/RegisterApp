@@ -85,7 +85,7 @@ app.get('/test-dynamodb-connection', async (req, res) => {
 });*/
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'Fe')));
+app.use(express.static(path.join(__dirname, 'Public')));
 
 // Start the Express application and listen on the specified port
 app.listen(port, () => {
