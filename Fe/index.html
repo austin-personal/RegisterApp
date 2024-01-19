@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>People Registration App</title>
+</head>
+
+<body>
+    <h1>People Registration App</h1>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <button type="button" onclick="registerPerson(),updateRegisteredPeopleList()">Register</button>
+    </form>
+    <h2>Registered People:</h2>
+    <ul id="registeredPeopleList"></ul>
+
+    <!-- JavaScript to define the registerPerson function -->
+    <script>
+        function registerPerson() {
+            // Retrieve values from the form
+            const name = document.getElementById('name').value;
+            const gender = document.getElementById('gender').value;
+
+            // Make a POST request to register the person
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    gender: gender,
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Log the response and update the registered people list
+                    console.log(data);
+                    updateRegisteredPeopleList();
+
+                })
+                .catch(error => console.error('Error registering person:', error));
+                location.reload();
+        }
+
+        // Function to update the registered people list
+        function updateRegisteredPeopleList() {
+            // Make a GET request to retrieve registered people
+            fetch('/people')
+                .then(response => response.json())
+                .then(data => {
+                    // Update the list with the retrieved data
+                    const registeredPeopleList = document.getElementById('registeredPeopleList');
+                    registeredPeopleList.innerHTML = '';
+
+                    data.forEach(person => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${person.name} - ${person.gender}`;
+                        registeredPeopleList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error getting registered people:', error));
+        }
+
+        // Initial update when the page loads
+        updateRegisteredPeopleList();
+    </script>
+</body>
+
+</html>
