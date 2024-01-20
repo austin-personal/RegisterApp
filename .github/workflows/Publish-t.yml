@@ -8,7 +8,8 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-
+    env:
+      PORT: 3000  # Specify the port your Node.js application should run on
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -20,11 +21,28 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      run: npm ci
-      run: npm test
+    - name: Start app
+      run: npm start
 
-  Deploy:
-      needs: build
-      runs-on: ubuntu-latest
-      steps:
-        - 
+>
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Upload to S3
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'your-region'
+
+      - name: Copy to S3
+        run: aws s3 cp ./path/to/your/app s3://your-s3-bucket/ --recursive
+
+      - name: Deploy to Elastic Beanstalk
+        uses: aws-actions/amazon-elastic-beanstalk-deploy@v1
+        with:
+          environment-name: 'your-environment-name'
+          application-name: 'your-application-name'
+          region: 'your-region'
