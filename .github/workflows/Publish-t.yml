@@ -24,7 +24,7 @@ jobs:
     - name: Start app
       run: npm start
     - name: Wait for Application to Start
-      run: sleep 5  # Adjust this wait time based on your application's startup tim
+      run: sleep 10  # Adjust this wait time based on your application's startup tim
     - name: Perform Tests
       run: curl http://localhost:3000 | grep "People Registration App"
 
