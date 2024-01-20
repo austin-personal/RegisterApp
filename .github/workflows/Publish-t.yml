@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Start app
-      run: npm start
+      run: npm start -s
     - name: Add curl
       run: apk add curl
     - name: Wait for Application to Start
