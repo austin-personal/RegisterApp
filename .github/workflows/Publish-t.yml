@@ -26,4 +26,5 @@ jobs:
     - name: Wait for Application to Start
       run: sleep 5  # Adjust this wait time based on your application's startup tim
     - name: Perform Tests
-      run: curl -X POST -H "Content-Type: application/json" -d '{"name": "John Doe", "gender": "male"}' http://localhost:3000/register
+      run: curl http://localhost:3000 | grep "People Registration App"
+
