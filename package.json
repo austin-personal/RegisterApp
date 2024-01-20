@@ -16,3 +16,8 @@
     "mysql": "^2.18.1"
   }
 }
+{
+  "scripts": {
+    "start": "node app.js"  // Replace "your-app.js" with the entry point of your Node.js application
+  }
+}
