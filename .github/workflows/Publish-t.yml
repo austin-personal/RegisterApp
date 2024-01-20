@@ -23,6 +23,8 @@ jobs:
       run: npm install
     - name: Start app
       run: npm start
+    - name: Add curl
+      run: apk add curl
     - name: Wait for Application to Start
       run: sleep 10  # Adjust this wait time based on your application's startup tim
     - name: Perform Tests
