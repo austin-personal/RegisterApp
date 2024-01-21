@@ -15,9 +15,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
+
+    - name: Print current working directory
+      run: echo "Current directory: $PWD"
+    - name: List contents of the specified directory
+      run: ls -R website-artifacts
+      
     - name: Install dependencies
       run: npm install
-    - name: Start app
+    - name: Build app
       run: npm run build
     - name: Upload artefects
       uses: actions/upload-artifact@v2
