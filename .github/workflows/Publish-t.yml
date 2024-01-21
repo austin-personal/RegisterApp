@@ -20,7 +20,7 @@ jobs:
     - name: Build app
       run: npm run build
     - name: Upload artefects
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Build
         path: dist/bundle.js
@@ -30,12 +30,12 @@ jobs:
     needs: Build_Website
     steps: 
     - name: Download Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: Build
 
     - name: Start app
-      run: npm start -s &
+      run: npm start -s Build &
     - name: Wait for Application to Start
       run: sleep 10 
     - name: Perform Tests
