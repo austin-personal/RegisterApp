@@ -7,7 +7,7 @@ module.exports = { //exporting a JavaScript object as a module
     filename: 'bundle.js', 
     path: path.resolve(__dirname, 'dist'), //location to store
   },
-  mode: 'Production',
+  mode: 'development',
   resolve: {
     fallback: {
       path: require.resolve("path-browserify"),
