@@ -34,7 +34,7 @@ jobs:
       with:
         name: Build
     - name: Start app
-      run: npm start -s &
+      run: npm start -s Build &
     - name: Wait for Application to Start
       run: sleep 10 
     - name: Perform Tests
