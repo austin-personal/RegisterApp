@@ -17,6 +17,8 @@ module.exports = { //exporting a JavaScript object as a module
       crypto: require.resolve('crypto-browserify'),
       fs: false,
       http: require.resolve('stream-http'),
+      assert: require.resolve('assert/'),
+      net: require.resolve('net'),
     },
   },
   module: { //set up rules how webpack should process different types of files
