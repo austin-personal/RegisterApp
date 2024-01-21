@@ -17,7 +17,7 @@ jobs:
         node-version: 16
 
     - name: Print current working directory
-      run: echo Current directory- $PWD"
+      run: echo "$PWD"
     - name: List contents of the specified directory
       run: ls -R website-artifacts
       
