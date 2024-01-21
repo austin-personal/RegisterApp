@@ -19,6 +19,13 @@ jobs:
       run: npm install
     - name: Build app
       run: npm run build
+    
+    - name: Start app
+      run: npm start -s &
+    - name: Wait for Application to Start
+      run: sleep 10 
+    - name: Perform Tests
+      run: curl http://localhost:3000 | grep "People Registration App"
     - name: Upload artefects
       uses: actions/upload-artifact@v3
       with:
@@ -34,9 +41,3 @@ jobs:
       with:
         name: Build
 
-    - name: Start app
-      run: npm start -s Build &
-    - name: Wait for Application to Start
-      run: sleep 10 
-    - name: Perform Tests
-      run: curl http://localhost:3000 | grep "People Registration App"
