@@ -7,11 +7,12 @@ module.exports = { //exporting a JavaScript object as a module
     filename: 'bundle.js', 
     path: path.resolve(__dirname, 'dist'), //location to store
   },
+  mode: 'Production',
   resolve: {
     fallback: {
       path: require.resolve("path-browserify"),
       stream: require.resolve("stream-browserify"),
-      async_hooks: require.resolve("async_hooks-browserify"),
+      async_hooks: require.resolve("async_hooks"),
     },
   },
   module: { //set up rules how webpack should process different types of files
