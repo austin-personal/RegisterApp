@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Build
-        path: ./RegisterApp
+        path: dist
 
   Test_Website: 
     runs-on: ubuntu-latest
@@ -33,7 +33,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Build
-        path: ./RegisterApp
+        path: dist
     - name: Start app
       run: npm start -s &
     - name: Wait for Application to Start
