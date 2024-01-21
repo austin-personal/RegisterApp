@@ -15,9 +15,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: Make directory to store artifects
-      run: mkdir website-artifacts
-      
     - name: Install dependencies
       run: npm install
     - name: Build app
@@ -26,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Build
-        path: website-artifacts
+        path: RegisterApp
 
   Test_Website: 
     runs-on: ubuntu-latest
@@ -36,7 +33,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Build
-        path: website-artifacts
+        path: RegisterApp
     - name: Start app
       run: npm start -s &
     - name: Wait for Application to Start
