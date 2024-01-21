@@ -9,6 +9,9 @@ module.exports = { //exporting a JavaScript object as a module
   },
   mode: 'development',
   resolve: {
+    alias: {
+        net: path.resolve(__dirname, 'emptyModule'),
+      },
     fallback: {
       path: require.resolve("path-browserify"),
       stream: require.resolve("stream-browserify"),
