@@ -25,7 +25,7 @@ jobs:
     - name: Wait for Application to Start
       run: sleep 10 
     - name: Perform Tests
-      run: curl http://localhost:3000 | grep "People Registration App"
+      run: curl http://localhost:8080 | grep "People Registration App"
     - name: Upload artefects
       uses: actions/upload-artifact@v3
       with:
