@@ -8,8 +8,7 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-    env:
-      PORT: 3000  # Specify the port your Node.js application should run on
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
