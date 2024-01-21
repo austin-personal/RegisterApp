@@ -33,9 +33,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Build
-        path: dist/bundle.js
-    - name: Install Dependencies
-      run: npm install
+
     - name: Start app
       run: npm start -s &
     - name: Wait for Application to Start
