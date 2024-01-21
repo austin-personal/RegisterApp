@@ -29,16 +29,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: Build_Website
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 16
     - name: Download Artifacts
       uses: actions/download-artifact@v3
       with:
         name: Build
+    - name: Install dependencies
+      run: npm install
     - name: Start app
-      run: npm start -s bundle.js &
+      run: npm start -s &
     - name: Wait for Application to Start
       run: sleep 10 
     - name: Perform Tests
