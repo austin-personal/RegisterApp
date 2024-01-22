@@ -42,7 +42,7 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Start app
-      run: npm start -s &
+      run: npm start 
     - name: Wait for Application to Start
       run: sleep 10 
     - name: Perform Tests
