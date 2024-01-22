@@ -15,13 +15,13 @@ module.exports = { //exporting a JavaScript object as a module
     fallback: {
       path: require.resolve("path-browserify"),
       stream: require.resolve("stream-browserify"),
-      async_hooks: require.resolve("async_hooks"),
       zlib: require.resolve('browserify-zlib'),
       crypto: require.resolve('crypto-browserify'),
       fs: false,
       http: require.resolve('stream-http'),
       assert: require.resolve('assert/'),
       net: require.resolve('net'),
+      async_hooks: false,
     },
   },
   module: { //set up rules how webpack should process different types of files
