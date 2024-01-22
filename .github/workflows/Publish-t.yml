@@ -46,5 +46,5 @@ jobs:
     - name: Wait for Application to Start
       run: sleep 10 
     - name: Perform Tests
-      run: curl http://localhost:8080 | grep "People Registration App"
+      run: curl http://localhost:8080 | grep "Minseok"
 
