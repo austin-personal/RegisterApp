@@ -1,20 +1,21 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
-module.exports = { //exporting a JavaScript object as a module
-  entry: './app.js', //main JavaScript file to start bundling dependencies
-  output: { //output store as
-    filename: 'bundle.js', 
-    path: path.resolve(__dirname, 'dist'), //location to store
+module.exports = {
+  entry: './app.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   mode: 'development',
   resolve: {
     alias: {
-        net: path.resolve(__dirname, 'emptyModule'),
-      },
+      net: path.resolve(__dirname, 'emptyModule'),
+    },
     fallback: {
-      path: require.resolve("path-browserify"),
-      stream: require.resolve("stream-browserify"),
+      path: require.resolve('path-browserify'),
+      stream: require.resolve('stream-browserify'),
       zlib: require.resolve('browserify-zlib'),
       crypto: require.resolve('crypto-browserify'),
       fs: false,
@@ -24,18 +25,21 @@ module.exports = { //exporting a JavaScript object as a module
       async_hooks: false,
     },
   },
-  module: { //set up rules how webpack should process different types of files
+  module: {
     rules: [
       {
-        test: /\.css$/, //regex to find .css file
-        use: ['style-loader', 'css-loader'], //tool to process
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './Public/index.html', //Specifies an array of webpack plugins to enhance the webpack functionality
+      template: './Public/index.html',
       filename: 'index.html',
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],
 };
