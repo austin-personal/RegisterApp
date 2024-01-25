@@ -1,5 +1,5 @@
 // Use dynamic import
-const { expect } = await import('chai');
+const { expect } = import('chai');
 
 const axios = require('axios');
 
