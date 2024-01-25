@@ -1,4 +1,6 @@
-const { expect } = require('chai');
+// Use dynamic import
+const { expect } = await import('chai');
+
 const axios = require('axios');
 
 describe('Registration Functionality', () => {
