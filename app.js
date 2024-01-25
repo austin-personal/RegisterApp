@@ -62,7 +62,7 @@ app.get('/people', (req, res) => {
   });
 });
 
-TEST Dynamodb connection
+//TEST Dynamodb connection
 app.get('/test-dynamodb-connection', async (req, res) => {
   try {
     // Perform a basic DynamoDB operation as a test (put an item)
