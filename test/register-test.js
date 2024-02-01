@@ -4,7 +4,7 @@ const axios = require('axios');
 
 describe('Registration Functionality', () => {
   it('should register a user successfully', async () => {
-    const response = await axios.post('http://localhost:3000/register', {
+    const response = await axios.post('http://localhost:8080/register', {
       name: '최효정',
       gender: 'Female',
     });
