@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-runs:
-  using: 'node20'
-  main: 'app.js'
 
 jobs:
   Build_Website:
