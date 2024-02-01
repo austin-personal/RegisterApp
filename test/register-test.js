@@ -8,7 +8,7 @@ async function loadChai() {
   // Use 'expect' here
 
   // Example usage:
-  const response = await axios.post('http://localhost:3000/register', {
+  const response = await axios.post('http://localhost:8080/register', {
     name: 'AWS Cloud Club',
     gender: 'Other',
   });
