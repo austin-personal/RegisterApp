@@ -37,7 +37,7 @@ app.post('/register', (req, res) => {
   dynamodb.put(params, (err) => {
     if (err) {
       console.error('Error registering person:', err);
-      res.status(500).send('Error registering person.');
+      res.status(500).send('Error registering person. ' + err.message);
     } else {
       console.log('Person registered successfully.');
       res.send('Person registered successfully.');
