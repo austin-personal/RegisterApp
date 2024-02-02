@@ -4,14 +4,17 @@ const path = require('path');
 const AWS = require('aws-sdk');
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
 app.use(bodyParser.json());
 
 //AWS configure
 AWS.config.update({
   region: 'us-east-1',
-  credentials: new AWS.SharedIniFileCredentials({ profile: 'vscode' }),
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
 });
 
 // Configure AWS DynamoDB
@@ -41,9 +44,6 @@ app.post('/register', (req, res) => {
     }
   });
 });
-
-//ignore favicon.ico
-app.get('/favicon.ico', (req, res) => res.status(204));
 
 // Define a route to handle GET requests for retrieving people
 app.get('/people', (req, res) => {
