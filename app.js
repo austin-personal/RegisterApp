@@ -63,7 +63,7 @@ app.get('/people', (req, res) => {
 });
 
 //TEST Dynamodb connection
-/*app.get('/test-dynamodb-connection', async (req, res) => {
+app.get('/test-dynamodb-connection', async (req, res) => {
   try {
     // Perform a basic DynamoDB operation as a test (put an item)
     const params = {
@@ -82,7 +82,7 @@ app.get('/people', (req, res) => {
     console.error('Error testing DynamoDB connection:', error);
     res.status(500).send('Error testing DynamoDB connection.');
   }
-});*/
+});
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'Public')));
