@@ -33,7 +33,7 @@ jobs:
       run: curl http://localhost:8080 | grep "People Registration App"
     - name: testtest
       run: npm test
-    
+     
     - name: Build app
       run: npm run build
     - name: Upload artefects
