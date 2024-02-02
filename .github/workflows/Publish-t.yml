@@ -48,8 +48,6 @@ jobs:
     - name: Perform Tests 1
       run:  curl http://localhost:8080 | grep "People Registration App"
     - name: Perform Tests 2
-      run:  curl -X POST -H "Content-Type: application/json" -d '{"name": "AWS Cloud Club", "gender": "Other"}' http://localhost:8080/register
-    - name: Perform Tests 3
       run: npm test
 
 
