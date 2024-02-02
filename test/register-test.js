@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import axios from 'axios';
+const { expect } = import('chai');
+const axios = require('axios');
 
 describe('Registration Functionality', () => {
   it('should register a user successfully', async () => {
