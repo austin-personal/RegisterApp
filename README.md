@@ -4,14 +4,14 @@
 
 ## Development plan
 1. Build Web app and deploy into local machine
-    1. Build FE - **HTML, CSS, JavaScript**
-    2. Build BE - **Node.js**
-    3. Connect DB - **AWS Dynamodb** by using AWS SDK
+    1. Build FE - ***HTML, CSS, JavaScript***
+    2. Build BE - ***Node.js***
+    3. Connect DB - ***AWS Dynamodb**** by using ***AWS SDK***
 2. Adapt Github action CICD pipeline
-    1. Bundling - **Webpack**
+    1. Bundling - ***Webpack***
     2. Test for the bundled file
-3. Build **docker image** and push to registry and test the docker image
-4. Deploy into **AWS Elastic Beanstalk** by using **terraform** and AWS SDK
+3. Build ***docker image*** and push to registry and test the docker image
+4. Deploy into ***AWS Elastic Beanstalk*** by using ***terraform*** and AWS SDK
 
 
 ## DevOps plan
