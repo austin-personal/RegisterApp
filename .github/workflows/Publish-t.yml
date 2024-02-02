@@ -19,9 +19,11 @@ jobs:
       run: npm install
     - name: Build app
       run: npm run build
-    - name: pre-test
-      run: npm start
-    - name: pr-test
+    - name: pre-testtttttttt
+      run: npm start -s &
+    - name: pre-testtttttttt
+      run: sleep 10 
+    - name: pr-testttttttttt
       run: npm test
     - name: Upload artefects
       uses: actions/upload-artifact@v3
