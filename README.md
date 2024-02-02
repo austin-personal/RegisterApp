@@ -1,7 +1,9 @@
 # RTD: Road To DevOps 2: Create an Web App with CICD pipeline to deploy into cloud. 
 ## Simple register web app
  - Skills: 
- *JavaScript, HTML, CSS, Node.js, webpack, Express, AWS SDK, Terraform, Docker, Github, Github action*
+ *JavaScript, HTML, CSS, Node.js, webpack, Express,*
+ *AWS SDK, AWS DynamoDB, AWS Elasticbeanstalk, AWS S3,*
+ *Terraform, Docker, Github, Github action, yaml*
 ## Architecture
 
 ## Development plan
