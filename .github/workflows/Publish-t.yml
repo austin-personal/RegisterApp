@@ -17,6 +17,16 @@ jobs:
         node-version: 20
     - name: Install dependencies
       run: npm install
+
+    - name: Testtesttest
+      run: node app.js -s &
+    - name: testtest
+      run: sleep 10
+    - name: testtest
+      run: curl http://localhost:8080 | grep "People Registration App"
+    - name: testtest
+      run: npm test
+    
     - name: Build app
       run: npm run build
     - name: Upload artefects

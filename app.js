@@ -8,7 +8,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-//AWS configure
+//AWS configure with github action's variables
 AWS.config.update({
   region: 'us-east-1',
   credentials: {
