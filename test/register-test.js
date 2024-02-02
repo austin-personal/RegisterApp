@@ -1,5 +1,4 @@
 const { expect } = import('chai');
-
 const axios = require('axios');
 
 describe('Registration Functionality', () => {

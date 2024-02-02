@@ -45,6 +45,8 @@ jobs:
       run: npm start -s &
     - name: Wait for Application to Start
       run: sleep 10 
-    - name: Perform Tests
+    - name: Perform Tests 1
       run: npm test
+    - name: Perform Tests 2
+      run: curl http://localhost:8080 | grep "People Registration App"
 
