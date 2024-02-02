@@ -1,9 +1,9 @@
 # RTD: Road To DevOps 2: Create an Web App with CICD pipeline to deploy into cloud. 
-## Simple register web app
+### Simple register web app
  - Skills: 
- *JavaScript, HTML, CSS, Node.js, webpack, Express,*
- *AWS SDK, AWS DynamoDB, AWS Elasticbeanstalk, AWS S3,*
- *Terraform, Docker, Github, Github action, yaml*
+     - *JavaScript, HTML, CSS, Node.js, webpack, Express, Mocha,*
+     - *AWS SDK, AWS DynamoDB, AWS Elasticbeanstalk, AWS S3,*
+     - *Terraform, Docker, Github, Github action, yaml*
 ## Architecture
 
 ## Development plan
@@ -13,7 +13,7 @@
     3. Connect DB - ***AWS Dynamodb*** by using ***AWS SDK***
 2. Adapt Github action CICD pipeline
     1. Bundling - ***Webpack***
-    2. Test for the bundled file
+    2. Test for the bundled file - Testing by using ***Mocha***
 3. Build ***docker image*** and push to registry and test the docker image
 4. Deploy into ***AWS Elastic Beanstalk*** by using ***terraform*** and AWS SDK
 
@@ -32,4 +32,8 @@
     - Create AWS resources by using Terraform
     - Upload files into AWS S3
     - Deploy into AWS Elastic beanstalk
+
+### Security
+- AWS SDK credential encrypted as variables
+- 
 
