@@ -9,7 +9,5 @@ describe('Registration Functionality', () => {
     });
     console.log(response.status)
     expect(response.status).to.equal(200);
-    // Add more assertions as needed
   });
 });
- 
