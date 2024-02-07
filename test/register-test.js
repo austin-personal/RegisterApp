@@ -1,4 +1,4 @@
-const { expect } = import('chai');
+var expect = require('chai').expect;
 const axios = require('axios');
 
 describe('Registration Functionality', () => {

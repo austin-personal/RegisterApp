@@ -33,7 +33,7 @@ app.post('/register', (req, res) => {
       gender: gender,
     },
   };
-
+  
   dynamodb.put(params, (err) => {
     if (err) {
       console.error('Error registering person:', err);
