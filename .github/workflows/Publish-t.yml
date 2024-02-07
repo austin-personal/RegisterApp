@@ -24,7 +24,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
     - name: Start app
-      run: npm start
+      run: npm start -s &
     - name: Wait the app to be started
       run: sleep 10
     - name: Test 1 grep html components
