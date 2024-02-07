@@ -10,14 +10,12 @@ app.use(bodyParser.json());
 
 //AWS configure with github action's variables
 AWS.config.update({
-  region: 'us-east-1',
+  region: process.env.AWS_REGION,
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
-console.log(process.env.AWS_ACCESS_KEY_ID, process.env.AWS_SECRET_ACCESS_KEY)
-
 // Configure AWS DynamoDB
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const tableName = 'project-1-db';
