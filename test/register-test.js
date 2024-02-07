@@ -1,4 +1,5 @@
-var expect = require('chai').expect;
+//const { expect } = import('chai');
+var assert = require('assert');
 const axios = require('axios');
 
 describe('Registration Functionality', () => {
@@ -9,7 +10,8 @@ describe('Registration Functionality', () => {
         gender: 'Other',
       });
       console.log(response.status);
-      expect(response.status).to.equal(200);
+      //expect(response.status).to.equal(200);
+      assert.equal(response.status, 200);
     } catch (error) {
       // Handle errors, log them, or fail the test if necessary
       console.error('Error during registration:', error.message);
