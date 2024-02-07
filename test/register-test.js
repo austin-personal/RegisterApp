@@ -5,7 +5,7 @@ const axios = require('axios');
 describe('Registration Functionality', () => {
   it('should register a user successfully', async () => {
     try {
-      const response = await axios.post('http://localhost:8080/register', {
+      const response = await axios.post('http://localhost:8081/register', {
         name: 'AWS Cloud Club',
         gender: 'Other',
       });

@@ -28,7 +28,7 @@ jobs:
     - name: Wait the app to be started
       run: sleep 10
     - name: Test 1 grep html components
-      run: curl http://localhost:8080 | grep "People Registration App"
+      run: curl http://localhost:8081 | grep "People Registration App"
     - name: Test 2 Mocha test case 
       run: npm test
 
