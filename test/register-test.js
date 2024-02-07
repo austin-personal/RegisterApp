@@ -1,7 +1,7 @@
 //const { expect } = import('chai');
 var assert = require('assert');
 const axios = require('axios');
-
+ 
 describe('Registration Functionality', () => {
   it('should register a user successfully', async () => {
     try {
