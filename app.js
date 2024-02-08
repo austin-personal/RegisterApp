@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 
 //AWS configure with github action's variables
 AWS.config.update({
-  region: "us-east-1",
+  region: process.env.AWS_REGION,
   credentials: {
-    accessKeyId: "AKIA4O57KTLOHOQCLLUN",
-    secretAccessKey: "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",
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
 // Configure AWS DynamoDB
