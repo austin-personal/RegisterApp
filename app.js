@@ -2,18 +2,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
+require('dotenv').config({ path: './.env' });
 
 const app = express();
 const port = 8081;
+
 
 app.use(bodyParser.json());
 
 //AWS configure with github action's variables
 AWS.config.update({
-  region: process.env.AWS_REGION,
+  region: "us-east-1",
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: "AKIA4O57KTLOHOQCLLUN",
+    secretAccessKey: "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",
   },
 });
 // Configure AWS DynamoDB
