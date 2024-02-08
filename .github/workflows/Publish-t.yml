@@ -40,8 +40,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    - name: test
-      uses: $APP_VERSION
     - name: Build Docker image
       run: docker build -t "${{ secrets.REGISTRY_USERNAME }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION" .
     - name: Log in to Docker Hub
