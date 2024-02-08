@@ -32,7 +32,7 @@ jobs:
     - name: Test 2 Mocha Register API test case 
       run: npm test
   
-Build_and_Push_Docker_Image:
+  Build_and_Push_Docker_Image:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
