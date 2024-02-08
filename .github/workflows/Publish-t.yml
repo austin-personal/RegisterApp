@@ -38,8 +38,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Build Docker image
-      run: docker build -t ${{ secrets.REGISTRY_USERNAME }}/registerApp:latest .
+      run: docker build -t ${{ secrets.REGISTRY_USERNAME }}/registerapp:latest .
     - name: Log in to Docker Hub
       run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
     - name: Push Docker image to Docker Hub
-      run: docker push ${{ secrets.REGISTRY_USERNAME }}/registerApp:latest
+      run: docker push ${{ secrets.REGISTRY_USERNAME }}/registerapp:latest
