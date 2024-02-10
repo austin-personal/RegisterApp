@@ -1,4 +1,4 @@
-name: Deploy to Local Machine
+name: Deploy to docker
 
 on:
   push:
