@@ -41,9 +41,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Build Docker image
-      run: docker build -t "${{ secrets.REGISTRY_USERNAME }}/${{ secrets.REGISTRY_NAME }}:latest" .
-    # - name: Trim whitespace from APP_VERSION
-    #  run: export APP_VERSION=$(echo "${{ github.run_number }}" | tr -d '\n')
+      run: docker build -t "${{ secrets.REGISTRY_USERNAME }}/${{ secrets.REGISTRY_NAME }}:APP_VERSION" .
     - name: Log in to Docker Hub
       run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login -u "${{ secrets.REGISTRY_USERNAME }}" ${{ secrets.REGISTRY_NAME }} --password-stdin
     - name: Push Docker image to Docker Hub
