@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  APP_VERSION: ${{ github.run_number }}
+  APP_VERSION: "${{ github.run_number }}""
 
 jobs:
   Test_Web_app:
