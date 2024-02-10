@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
-require('dotenv').config({ path: './.env' });
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const app = express();
 const port = 8081;
@@ -18,6 +18,7 @@ AWS.config.update({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
+console.log(process.env.AWS_REGION)
 // Configure AWS DynamoDB
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const tableName = 'project-1-db';
