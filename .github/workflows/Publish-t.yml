@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
@@ -39,11 +39,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Log in to Docker Hub
-      run: echo ${{ secrets.REGISTRY_PASSWORD }} | docker login -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+      with:
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
     - name: Build Docker image
-      run: docker build -t "${{ secrets.REGISTRY_NAME }} .
+      run: docker build -t "${{ secrets.REGISTRY_NAME }:$APP_VERSION" .
     - name: Push Docker image to Docker Hub
       run: docker push "${{ secrets.REGISTRY_USERNAME }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
   
