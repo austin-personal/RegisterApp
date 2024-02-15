@@ -47,9 +47,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-
     - name: Build Docker image
       run: docker build -t "${{ secrets.REGISTRY_NAME }}:$APP_VERSION" .
     - name: Push Docker image to Docker Hub
-      run: docker push "${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
+      run: docker push "${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
     
