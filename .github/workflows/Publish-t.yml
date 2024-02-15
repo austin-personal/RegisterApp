@@ -51,7 +51,7 @@ jobs:
     - name: docker tag
       run: docker tag "${{ secrets.REGISTRY_NAME }}:$APP_VERSION" "${{ secrets.REGISTRY_NAME }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
     - name: Push Docker image to Docker Hub
-      run: docker push "${{ secrets.REGISTRY_NAME }}:${{ env.APP_VERSION }}"
+      run: docker push "austin/${{ secrets.REGISTRY_NAME }}:${{ env.APP_VERSION }}"
     
 
 #        - name: Log in to Docker Hub
