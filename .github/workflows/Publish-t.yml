@@ -52,5 +52,5 @@ jobs:
     - name: List docker image
       run: docker image ls
     - name: Push Docker image to Docker Hub
-      run: docker push "austin/${{ secrets.REGISTRY_NAME }}:${{ env.APP_VERSION }}"
+      run: docker push "${{ secrets.REGISTRY_NAME }}:${{ env.APP_VERSION }}"
     
