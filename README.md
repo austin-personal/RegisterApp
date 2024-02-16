@@ -1,8 +1,8 @@
 # Create an Web App with CICD pipeline to deploy into cloud. 
 ### Simple register web app
  - Skills: 
-     - *JavaScript, HTML, CSS, Node.js, Express, Mocha,* /n
-     - *AWS SDK, AWS DynamoDB, AWS Elasticbeanstalk, AWS S3,* /n
+     - *JavaScript, HTML, CSS, Node.js, Express, Mocha,* 
+     - *AWS SDK, AWS DynamoDB, AWS Elasticbeanstalk, AWS S3,* 
      - *Terraform, Docker, Github, Github action, yaml*
 ## Architecture
 
@@ -15,7 +15,7 @@
     1. Sets Enviroment variables and adapt CICD piprline into the app
     2. Add test for the app by using ***Mocha***
     3. Add Build ***docker image*** and push to dockerhub registry and test the docker image
-    4. Deploy into ***AWS Elastic Beanstalk*** by using ***terraform*** and AWS SDK
+3. Deploy into ***AWS Elastic Beanstalk*** by using ***terraform*** and AWS SDK
 
 
 ## DevOps plan
