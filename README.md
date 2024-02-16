@@ -4,7 +4,6 @@
      - *JavaScript, HTML, CSS, Node.js, Express, Mocha,* 
      - *AWS SDK, AWS DynamoDB, AWS Elasticbeanstalk, AWS S3,* 
      - *Terraform, Docker, Github, Github action, yaml*
-## Architecture
 
 ## Development plan
 1. Build Web app and deploy into local machine
@@ -38,3 +37,9 @@
 - Docker hub credentials and docker username and registry name encrypted as variables
 - Use AWS IAM user with limited permission
 
+## Overall Feedback
+1. Use a Branch to seperate development process. -> Make easy to track commit history
+2. Write codes by thinking future changes
+3. Set up local and git hub action variables with same name to run both environment.
+4. Use Issue to record errors or Confusing Things.
+5. Always documents. 
