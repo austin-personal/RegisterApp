@@ -48,7 +48,5 @@ jobs:
       run: docker build -t "${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION" .
     - name: List docker image
       run: docker image ls
-    - name: Tag Docker image
-      run: docker tag "${{ secrets.REGISTRY_NAME }}:$APP_VERSION" "austin/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
     - name: Push Docker image to Docker Hub
       run: docker push "${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
