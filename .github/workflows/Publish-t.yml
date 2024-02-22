@@ -74,5 +74,5 @@ jobs:
             --application-name "test app" \
             --environment-name  Testapp-env \
             --version-label $APP_VERSION \
-            --option-settings Namespace="Docker",Value="${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
+            --option-settings Namespace="Docker",OptionName="Image",Value="${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
 
