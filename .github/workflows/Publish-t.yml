@@ -65,9 +65,10 @@ jobs:
     - name: Deploy to Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v22
       with:
-        application_name: test app
-        environment_name: Testapp-env 
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: "test app"
+        environment_name: Testapp-env
         version_label: $APP_VERSION
         region: ${{ secrets.AWS_REGION }}
-        input_artifacts: '{"image_name":"${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}","image_tag":"$APP_VERSION"}'
 
