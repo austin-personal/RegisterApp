@@ -69,6 +69,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: "test app"
         environment_name: Testapp-env
-        version_label: $APP_VERSION
+        version_label: "${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
         region: ${{ secrets.AWS_REGION }}
 
