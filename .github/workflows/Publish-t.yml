@@ -56,8 +56,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [Build_and_Push_Docker_Image]
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -65,7 +63,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Deploy to Elastic Beanstalk
-      uses: aws-actions/elasticbeanstalk-deploy@v1
+      uses: einaregilsson/beanstalk-deploy@v22
       with:
         application_name: test app
         environment_name: Testapp-env 
