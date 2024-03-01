@@ -67,7 +67,7 @@ jobs:
     - name: Check AWS version
       run: aws --version
     - name: Text editor
-      run: apt install -y gettext
+      run: sudo apt install -y gettext
     - name: Replace Env Variable
       run: envsubst < template/Dockerrun.aws.json > Dockerrun.aws.json
     - name: Upload to S3
