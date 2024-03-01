@@ -66,7 +66,9 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Check AWS version
       run: aws --version
-    - name: Check folder
-      run: ls template/
+    - name: Text editor
+      run: yum install -y gettext
+    - name: Replace Env Variable
+      run: envsubst < template/Dockerrun.aws.json > Dockerrun.aws.json
     - name: Upload to S3
       run: aws s3 cp template/dockerrun.aws.json s3://$AWS_S3_BUCKET/dockerrun.aws.json
