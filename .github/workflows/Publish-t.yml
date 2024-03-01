@@ -72,3 +72,4 @@ jobs:
       run: envsubst < template/dockerrun.aws.json > Dockerrun.aws.json
     - name: Upload to S3
       run: aws s3 cp template/dockerrun.aws.json s3://S3_BUCKET/dockerrun.aws.json
+ 
