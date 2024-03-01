@@ -69,4 +69,4 @@ jobs:
     - name: Check folder
       run: ls template/
     - name: Upload to S3
-      run: aws s3 cp template/Dockerrun.aws.json s3://$AWS_S3_BUCKET/Dockerrun.aws.json
+      run: aws s3 cp template/dockerrun.aws.json s3://$AWS_S3_BUCKET/dockerrun.aws.json
