@@ -62,17 +62,5 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
-    - id: install-aws-cli
-      uses: unfor19/install-aws-cli-action@v1
-      with:
-        version: 2                         # default
-        verbose: false                     # default
-        arch: amd64                        # allowed values: amd64, arm64
-    - name: Deploy to Elastic Beanstalk
-      run: |
-          aws elasticbeanstalk update-environment \
-            --application-name "test app" \
-            --environment-name  Testapp-env \
-            --version-label $APP_VERSION \
-            --option-settings Namespace="Docker",OptionName="Image",Value="${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
-
+    - name: Check AWS version
+      run: aws --version
