@@ -66,5 +66,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Check AWS version
       run: aws --version
+    - name: Check folder
+      run: ls
     - name: Upload to S3
       run: aws s3 cp template/Dockerrun.aws.json s3://$AWS_S3_BUCKET/Dockerrun.aws.json
