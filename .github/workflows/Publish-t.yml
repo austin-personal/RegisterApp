@@ -55,6 +55,9 @@ jobs:
   Deploy_to_production:
     runs-on: ubuntu-latest
     needs: [Build_and_Push_Docker_Image]
+    env:
+      APP_NAME: registerapp
+      APP_ENV_NAME: Testapp-env
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -72,4 +75,13 @@ jobs:
       run: envsubst < template/dockerrun.aws.json > Dockerrun.aws.json
     - name: Upload to S3
       run: aws s3 cp template/dockerrun.aws.json s3://S3_BUCKET/dockerrun.aws.json
- 
+    - name: Create a new application version
+      run: aws elasticbeanstalk create-application-version \
+        --application-name $APP_NAME \
+        --version-label $APP_VERSION \
+        --source-bundle S3Bucket=$AWS_S3_BUCKET,S3Key=Dockerrun.aws.json
+    - name: Update Environment
+      run: aws elasticbeanstalk update-environment \
+        --application-name $APP_NAME \
+        --environment-name $APP_ENV_NAME \
+        --version-label $APP_VERSION
