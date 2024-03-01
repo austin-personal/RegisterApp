@@ -1,7 +1,7 @@
 {
-    "AWSEBDockerrunVersion": "2",
+    "AWSEBDockerrunVersion": "1",
     "Image": {
-        "uri": "${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
+        "uri": "docker.io/ausitn/registerapp:224"
     },
     "Ports": [
       {
