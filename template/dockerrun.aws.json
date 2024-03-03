@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-        "uri": "docker.io/ausitn/registerapp:224"
+        "name": "docker.io/ausitn/registerapp:225"
     },
     "Ports": [
       {
