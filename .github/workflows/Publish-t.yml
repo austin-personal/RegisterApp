@@ -7,8 +7,8 @@ on:
 
 env:
   APP_VERSION: "${{ github.run_number }}"
-  APP_NAME: "test app"
-  APP_ENV_NAME: "Testapp-env"
+  APP_NAME: "registerapp"
+  APP_ENV_NAME: "Registerapp-env"
 
 jobs:
   Test_Web_app:
