@@ -6,7 +6,7 @@
 
 ARG NODE_VERSION=21.5.0
 
-FROM nginx:1.25.4-alpine
+FROM node:${NODE_VERSION}-alpine
 
 # Use production node environment by default.
 ENV NODE_ENV production
