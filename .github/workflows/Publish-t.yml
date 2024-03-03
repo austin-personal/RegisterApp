@@ -84,4 +84,4 @@ jobs:
       run: aws elasticbeanstalk update-environment \
         --application-name $APP_NAME \
         --environment-name $APP_ENV_NAME \
-        --version-label $APP_VERSION
+        --version-label $APP_VERSION 
