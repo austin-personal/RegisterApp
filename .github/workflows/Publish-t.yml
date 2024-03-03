@@ -73,8 +73,8 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
       run: |
-        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" dockerrun.aws.json
-        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" dockerrun.aws.json
+        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/dockerrun.aws.json
+        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
     - name: Check dockerrun file
       run: cat Dockerrun.aws.json
     - name: Upload to S3
