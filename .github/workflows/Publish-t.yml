@@ -76,7 +76,7 @@ jobs:
         sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/dockerrun.aws.json
         sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
     - name: Check dockerrun file
-      run: cat Dockerrun.aws.json
+      run: cat template/Dockerrun.aws.json
     - name: Upload to S3
       run: aws s3 cp template/dockerrun.aws.json s3://${{ secrets.AWS_S3_BUCKET }}/dockerrun.aws.json
     - name: Create a new application version
