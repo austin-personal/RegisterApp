@@ -72,8 +72,8 @@ jobs:
       run: sudo apt install -y gettext
     - name: Set environment variables
       run: |
-      echo "export DOCKER_USER=${{ secrets.DOCKER_USER }}" >> $GITHUB_ENV
-      echo "export REGISTRY_NAME=${{ secrets.REGISTRY_NAME }}" >> $GITHUB_ENV
+      echo "export DOCKER_USER=${{ secrets.DOCKER_USER }}" >> $GITHUB_ENV;
+      echo "export REGISTRY_NAME=${{ secrets.REGISTRY_NAME }}" >> $GITHUB_ENV;
     - name: Replace Env Variable
       run: envsubst < template/dockerrun.aws.json > Dockerrun.aws.json
     - name: Check dockerrun file
