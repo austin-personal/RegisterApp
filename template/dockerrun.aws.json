@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-        "name": "docker.io/${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION"
+        "name": "docker.io/process.env.DOCKER_USER/process.env.REGISTRY_NAME:$APP_VERSION"
     },
     "Ports": [
       {
