@@ -1,12 +1,12 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-        "name": "docker.io/{{DOCKER_USER}}/{{REGISTRY_NAME}}:{{APP_VERSION}}"
+      "Name": "docker.io/{{DOCKER_USER}}/{{REGISTRY_NAME}}:{{APP_VERSION}}",
+      "Update": "true"
     },
     "Ports": [
       {
-        "ContainerPort": 80
+        "ContainerPort": "5000"
       }
     ]
   }
-  
