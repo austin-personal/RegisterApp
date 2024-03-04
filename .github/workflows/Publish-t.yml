@@ -68,7 +68,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Check AWS version
       run: aws --version
-    - name: Replace secrets in JSON
+    - name: Replace secrets in dockerrun.aws.json
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
