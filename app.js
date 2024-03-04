@@ -18,7 +18,7 @@ AWS.config.update({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
-console.log(process.env.AWS_REGION)
+
 // Configure AWS DynamoDB
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const tableName = 'project-1-db';

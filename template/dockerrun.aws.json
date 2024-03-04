@@ -4,6 +4,10 @@
       "Name": "docker.io/{{DOCKER_USER}}/{{REGISTRY_NAME}}:{{APP_VERSION}}",
       "Update": "true"
     },
+    "Authentication": {
+      "Bucket": "$AWS_S3_BUCKET",
+      "Key": "auth.json"
+    },
     "Ports": [
       {
         "ContainerPort": "8081"
