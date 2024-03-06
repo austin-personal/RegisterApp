@@ -5,7 +5,7 @@
       "Update": "true"
     },
     "Authentication": {
-      "Bucket": "$AWS_S3_BUCKET",
+      "Bucket": "{{AWS_S3_BUCKET}}",
       "Key": "auth.json"
     },
     "Ports": [
