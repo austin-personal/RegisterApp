@@ -20,7 +20,7 @@
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select>
-        <button type="button" onclick="registerPerson(),updateRegisteredPeopleList()">Register</button>
+        <button type="button" onclick="registerPerson()">Register</button>
     </form>
     <h2>Registered People:</h2>
     <ul id="registeredPeopleList"></ul>
@@ -47,13 +47,12 @@
                 .then(data => {
                     // Log the response and update the registered people list
                     console.log(data);
-                    updateRegisteredPeopleList();
+                    location.reload();
+                    // updateRegisteredPeopleList();
 
                 })
                 .catch(error => console.error('Error registering person:', error));
-                location.reload();
         }
-
         // Function to update the registered people list
         function updateRegisteredPeopleList() {
             // Make a GET request to retrieve registered people

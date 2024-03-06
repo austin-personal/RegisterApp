@@ -1,4 +1,4 @@
-name: Deploy to docker
+name: Deploy to AWS EB
 
 on:
   push:
@@ -68,6 +68,8 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Check AWS version
       run: aws --version
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io
     - name: Replace secrets in dockerrun.aws.json and auth.json
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
