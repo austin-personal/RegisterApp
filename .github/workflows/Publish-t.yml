@@ -72,7 +72,9 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
+        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/dockerrun.aws.json
         sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/dockerrun.aws.json
         sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
         sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/dockerrun.aws.json
