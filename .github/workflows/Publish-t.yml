@@ -73,7 +73,9 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
       run: |
+        sed -i "s/{{AWS_S3_BUCKET}}/$AWS_S3_BUCKET/g" template/dockerrun.aws.json
         sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/dockerrun.aws.json
         sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/dockerrun.aws.json
         sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
