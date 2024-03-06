@@ -68,7 +68,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Check AWS version
       run: aws --version
-    - name: Replace secrets in dockerrun.aws.json
+    - name: Replace secrets in dockerrun.aws.json and auth.json
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
@@ -80,6 +80,11 @@ jobs:
         sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/dockerrun.aws.json
         sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
         sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/dockerrun.aws.json
+        
+        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/auth.json
+        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/auth.json
+        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/auth.json
+        sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/auth.json
     - name: Check dockerrun file
       run: cat template/dockerrun.aws.json
     - name: Upload Dockerrun.aws.json to S3
