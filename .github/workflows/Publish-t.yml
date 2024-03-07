@@ -93,8 +93,8 @@ jobs:
       run: cat template/dockerrun.aws.json
     - name: Upload Dockerrun.aws.json to S3
       run: aws s3 cp template/dockerrun.aws.json s3://${{ secrets.AWS_S3_BUCKET }}/dockerrun.aws.json
-    - name: Upload auth.json to S3
-      run: aws s3 cp template/auth.json s3://${{ secrets.AWS_S3_BUCKET }}/auth.json
+    - name: Upload dockercfg to S3
+      run: aws s3 cp template/.dockercfg s3://${{ secrets.AWS_S3_BUCKET }}/.dockercfg
     - name: Create a new application version
       run: aws elasticbeanstalk create-application-version --application-name $APP_NAME --version-label $APP_VERSION --source-bundle S3Bucket=${{ secrets.AWS_S3_BUCKET }},S3Key=dockerrun.aws.json
     - name: Update Environment
