@@ -76,6 +76,7 @@ jobs:
         REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        EMAIL: ${{ secrets.EMAIL }}
       run: |
         sed -i "s/{{AWS_S3_BUCKET}}/$AWS_S3_BUCKET/g" template/dockerrun.aws.json
         sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/dockerrun.aws.json
@@ -83,10 +84,11 @@ jobs:
         sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
         sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/dockerrun.aws.json
         
-        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/auth.json
-        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/auth.json
-        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/auth.json
-        sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/auth.json
+        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/.dockerdfg
+        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/.dockerdfg
+        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/.dockerdfg
+        sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/.dockerdfg
+        sed -i "s/{{EMAIL}}/$EMAIL/g" template/.dockerdfg
     - name: Check dockerrun file
       run: cat template/dockerrun.aws.json
     - name: Upload Dockerrun.aws.json to S3

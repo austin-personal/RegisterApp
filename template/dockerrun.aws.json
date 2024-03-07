@@ -1,12 +1,12 @@
 {
-    "AWSEBDockerrunVersion": "1",
+    "AWSEBDockerrunVersion": "3",
     "Image": {
       "Name": "docker.io/{{DOCKER_USER}}/{{REGISTRY_NAME}}:{{APP_VERSION}}",
       "Update": "true"
     },
     "Authentication": {
       "Bucket": "{{AWS_S3_BUCKET}}",
-      "Key": "config.json"
+      "Key": ".dockercfg"
     },
     "Ports": [
       {
