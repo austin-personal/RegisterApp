@@ -1,5 +1,5 @@
 {
-    "AWSEBDockerrunVersion": "3",
+    "AWSEBDockerrunVersion": "1",
     "Image": {
       "Name": "docker.io/{{DOCKER_USER}}/{{REGISTRY_NAME}}:{{APP_VERSION}}",
       "Update": "true"
