@@ -6,7 +6,7 @@
     },
     "Authentication": {
       "Bucket": "{{AWS_S3_BUCKET}}",
-      "Key": "config.json"
+      "Key": "auth.json"
     },
     "Ports": [
       {
