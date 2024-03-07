@@ -84,11 +84,11 @@ jobs:
         sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
         sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/dockerrun.aws.json
         
-        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/.dockerdfg
-        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/.dockerdfg
-        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/.dockerdfg
-        sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/.dockerdfg
-        sed -i "s/{{EMAIL}}/$EMAIL/g" template/.dockerdfg
+        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/.dockercfg
+        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/.dockercfg
+        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/.dockercfg
+        sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/.dockercfg
+        sed -i "s/{{EMAIL}}/$EMAIL/g" template/.dockercfg
     - name: Check dockerrun file
       run: cat template/dockerrun.aws.json
     - name: Upload Dockerrun.aws.json to S3
