@@ -10,7 +10,7 @@ env:
   APP_NAME: "registerapp"
   APP_ENV_NAME: "Registerapp-env"
 
-jo#bs:
+jobs:
   #Test_Web_app:
   #  runs-on: ubuntu-latest
   #  steps:
