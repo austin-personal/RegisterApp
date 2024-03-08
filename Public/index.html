@@ -47,8 +47,8 @@
                 .then(data => {
                     // Log the response and update the registered people list
                     console.log(data);
+                    updateRegisteredPeopleList();
                     location.reload();
-                    // updateRegisteredPeopleList();
 
                 })
                 .catch(error => console.error('Error registering person:', error));
