@@ -23,7 +23,7 @@ jobs:
   #  - name: Install dependencies
   #    run: npm install
   #  - name: authure AWS Credentials
-  #    uses: aws-actions/authure-aws-credentials@v4
+  #    uses: aws-actions/configure-aws-credentials@v4
   #    with:
   #      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
   #      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -71,15 +71,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     - name: authure AWS Credentials
-      uses: aws-actions/authure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Check AWS version
       run: aws --version
-    - name: Log in to Docker Hub
-      run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io
     - name: Replace secrets in dockerrun.aws.json and auth.json
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
