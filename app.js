@@ -18,6 +18,14 @@ AWS.config.update({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
+//replace env variable to push private registry
+AWS.config.update({
+  region: "{{AWS_REGION}}",
+  credentials: {
+    accessKeyId: "{{AWS_ACCESS_KEY_ID}}",
+    secretAccessKey: "{{AWS_SECRET_ACCESS_KEY}}",
+  },
+});
 
 // Configure AWS DynamoDB
 const dynamodb = new AWS.DynamoDB.DocumentClient();

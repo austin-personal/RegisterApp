@@ -47,6 +47,16 @@ jobs:
         persist-credentials: false
     - name: Log in to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io
+    - name: Replace secrets in dockerrun.aws.json and auth.json
+      env:
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+        sed -i "s/{{AWS_REGION}}/$AWS_REGION/g" app.js
+        sed -i "s/{{AWS_ACCESS_KEY_ID}}/$AWS_ACCESS_KEY_ID/g" app.js
+        sed -i "s/{{AWS_SECRET_ACCESS_KEY}}/$AWS_SECRET_ACCESS_KEY/g" app.js
+
     - name: Build Docker image
       run: docker build -t "${{ secrets.DOCKER_USER }}/${{ secrets.REGISTRY_NAME }}:$APP_VERSION" .
     - name: List docker image
