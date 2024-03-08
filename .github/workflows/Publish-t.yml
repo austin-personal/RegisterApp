@@ -92,17 +92,17 @@ jobs:
         sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/dockerrun.aws.json
         sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/dockerrun.aws.json
         
-        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/config,json
-        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/config,json
-        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/config,json
-        sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/config,json
-        sed -i "s/{{EMAIL}}/$EMAIL/g" template/config,json
+        sed -i "s/{{DOCKER_PASSWORD}}/$DOCKER_PASSWORD/g" template/config.json
+        sed -i "s/{{DOCKER_USER}}/$DOCKER_USER/g" template/config.json
+        sed -i "s/{{REGISTRY_NAME}}/$REGISTRY_NAME/g" template/config.json
+        sed -i "s/{{APP_VERSION}}/$APP_VERSION/g" template/config.json
+        sed -i "s/{{EMAIL}}/$EMAIL/g" template/config.json
     - name: Check dockerrun file
       run: cat template/dockerrun.aws.json
     - name: Upload Dockerrun.aws.json to S3
       run: aws s3 cp template/dockerrun.aws.json s3://${{ secrets.AWS_S3_BUCKET }}/dockerrun.aws.json
     - name: Uploadauth.json to S3
-      run: aws s3 cp template/config,json s3://${{ secrets.AWS_S3_BUCKET }}/config,json
+      run: aws s3 cp template/config.json s3://${{ secrets.AWS_S3_BUCKET }}/config.json
     - name: Create a new application version
       run: aws elasticbeanstalk create-application-version --application-name $APP_NAME --version-label $APP_VERSION --source-bundle S3Bucket=${{ secrets.AWS_S3_BUCKET }},S3Key=dockerrun.aws.json
     - name: Update Environment
