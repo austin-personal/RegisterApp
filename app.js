@@ -11,19 +11,15 @@ const port = 8081;
 app.use(bodyParser.json());
 
 //AWS configure with github action's variables
+const AWS_REGION = process.env.AWS_REGION;
+const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
+const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
+
 AWS.config.update({
-  region: process.env.AWS_REGION,
+  region: AWS_REGION,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
-});
-//replace env variable to push private registry
-AWS.config.update({
-  region: "{{AWS_REGION}}",
-  credentials: {
-    accessKeyId: "{{AWS_ACCESS_KEY_ID}}",
-    secretAccessKey: "{{AWS_SECRET_ACCESS_KEY}}",
+    accessKeyId: AWS_ACCESS_KEY_ID,
+    secretAccessKey: AWS_SECRET_ACCESS_KEY,
   },
 });
 
