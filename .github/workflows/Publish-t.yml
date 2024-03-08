@@ -47,6 +47,11 @@ jobs:
         persist-credentials: false
     - name: Log in to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io
+    - name: authure AWS Credentials
+      uses: aws-actions/authure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name: Replace secrets in dockerrun.aws.json and auth.json
       env:
         AWS_REGION: ${{ secrets.AWS_REGION }}
